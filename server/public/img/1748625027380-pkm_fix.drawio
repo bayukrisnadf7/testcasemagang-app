@@ -1,0 +1,131 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="27.0.9">
+  <diagram name="Page-1" id="nJE7Dgzyf5-Y7JlzmtFL">
+    <mxGraphModel dx="1226" dy="715" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-2" target="AxuEqE8lnYEVBUfQUEci-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-2" value="Mulai" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="30" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-3" target="AxuEqE8lnYEVBUfQUEci-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-3" value="Studi Literatur dan Studi Pendahuluan" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-5" target="AxuEqE8lnYEVBUfQUEci-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-5" value="Analisis Kebutuhan" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-7" target="AxuEqE8lnYEVBUfQUEci-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-7" value="Perancangan Konsep Alat" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-9" target="AxuEqE8lnYEVBUfQUEci-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-9" target="AxuEqE8lnYEVBUfQUEci-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-9" value="Analisis Data" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-11" target="AxuEqE8lnYEVBUfQUEci-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-11" value="Pembuatan Sistem Alat Hidpronik" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-14" target="AxuEqE8lnYEVBUfQUEci-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-14" value="Pembuatan Aplikasi&amp;nbsp; Mobile Monitoring" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-16" target="AxuEqE8lnYEVBUfQUEci-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-16" value="Pengujian Sistem Alat Hidroponik" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-18" target="AxuEqE8lnYEVBUfQUEci-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-18" target="AxuEqE8lnYEVBUfQUEci-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="280" />
+              <mxPoint x="580" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-18" value="Apakah alat berfungsi dengan baik ?" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-22" target="AxuEqE8lnYEVBUfQUEci-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-22" value="Pengujian Aplikasi Mobile" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-24" target="AxuEqE8lnYEVBUfQUEci-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-24" target="AxuEqE8lnYEVBUfQUEci-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="560" />
+              <mxPoint x="580" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-24" value="Apakah aplikasi mobile berfungsi dengan baik ?" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-27" target="AxuEqE8lnYEVBUfQUEci-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-27" value="Evaluasi" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-30" target="AxuEqE8lnYEVBUfQUEci-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="AxuEqE8lnYEVBUfQUEci-30" target="AxuEqE8lnYEVBUfQUEci-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1275" y="640" />
+              <mxPoint x="400" y="640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-30" value="Apakah sistem berjalan dengan baik ?" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1215" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-32" value="Selesai" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1370" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-35" value="&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;TIDAK&lt;/b&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="710" y="240" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-36" value="&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;TIDAK&lt;/b&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="710" y="560" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AxuEqE8lnYEVBUfQUEci-41" value="&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;TIDAK&lt;/b&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="710" y="640" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
