@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = "http://localhost:5000/api/chapters";
+const API_BASE = "https://testcasemagang-app-production.up.railway.app/api/chapters";
 
 // GET all chapters
 export const getChapters = () => axios.get(API_BASE);
