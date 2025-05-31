@@ -100,12 +100,18 @@ export default function StoryManagement() {
                     <div className="flex flex-wrap gap-2">
                       {(() => {
                         let parsedTags = [];
-                        try {
-                          parsedTags = JSON.parse(story.tags); // parse JSON string ke array
-                        } catch {
-                          parsedTags = story.tags.split(","); // fallback kalau bukan JSON
-                        }
 
+                        if (Array.isArray(story.tags)) {
+                          parsedTags = story.tags;
+                        } else if (typeof story.tags === "string") {
+                          try {
+                            parsedTags = JSON.parse(story.tags);
+                          } catch {
+                            parsedTags = story.tags.split(",");
+                          }
+                        } else {
+                          parsedTags = [];
+                        }
                         return parsedTags.map((tag) => (
                           <span
                             key={tag}
