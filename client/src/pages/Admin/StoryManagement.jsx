@@ -15,7 +15,16 @@ export default function StoryManagement() {
 
   useEffect(() => {
     getStories()
-      .then((res) => setStories(res.data))
+      .then((res) => {
+        const parsedData = res.data.map((story) => ({
+          ...story,
+          tags:
+            typeof story.tags === "string" && story.tags.startsWith("[")
+              ? JSON.parse(story.tags)
+              : story.tags,
+        }));
+        setStories(parsedData);
+      })
       .catch(console.error);
   }, []);
 
@@ -101,20 +110,31 @@ export default function StoryManagement() {
                       {(() => {
                         let parsedTags = [];
 
+                        // Kalau sudah array
                         if (Array.isArray(story.tags)) {
                           parsedTags = story.tags;
-                        } else if (typeof story.tags === "string") {
+                        }
+                        // Kalau string JSON array
+                        else if (
+                          typeof story.tags === "string" &&
+                          story.tags.startsWith("[")
+                        ) {
                           try {
                             parsedTags = JSON.parse(story.tags);
                           } catch {
-                            parsedTags = story.tags.split(",");
+                            parsedTags = [];
                           }
-                        } else {
-                          parsedTags = [];
                         }
-                        return parsedTags.map((tag) => (
+                        // Kalau string biasa
+                        else if (typeof story.tags === "string") {
+                          parsedTags = story.tags
+                            .split(",")
+                            .map((tag) => tag.trim());
+                        }
+
+                        return parsedTags.map((tag, i) => (
                           <span
-                            key={tag}
+                            key={i}
                             className="bg-gray-100 text-gray-500 px-3 py-1 rounded-full text-sm"
                           >
                             {tag}
