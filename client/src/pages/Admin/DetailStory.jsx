@@ -82,10 +82,20 @@ export default function DetailStory() {
           <div className="flex flex-wrap items-center gap-2">
             {(() => {
               let parsedTags = [];
-              try {
-                parsedTags = JSON.parse(story.tags); // parse JSON string ke array
-              } catch{
-                parsedTags = story.tags.split(","); // fallback kalau bukan JSON
+
+              if (Array.isArray(story.tags)) {
+                // Sudah array → langsung
+                parsedTags = story.tags;
+              } else if (typeof story.tags === "string") {
+                try {
+                  parsedTags = JSON.parse(story.tags);
+                  if (!Array.isArray(parsedTags)) {
+                    // Kalau hasil parse bukan array, fallback split
+                    parsedTags = story.tags.split(",");
+                  }
+                } catch {
+                  parsedTags = story.tags.split(",");
+                }
               }
 
               return parsedTags.map((tag) => (
