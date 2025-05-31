@@ -114,26 +114,27 @@ export default function StoryManagement() {
                           parsedTags = story.tags;
                         } else if (typeof story.tags === "string") {
                           try {
-                            // Jika string JSON (seperti: '["Best","Mental Illness"]')
+                            // Kalau bisa parse JSON, langsung pakai array hasilnya
                             parsedTags = JSON.parse(story.tags);
                           } catch {
-                            // Kalau bukan JSON, fallback split
-                            parsedTags = story.tags
+                            // Kalau gagal, hapus karakter "[" dan "]" dulu
+                            const cleaned = story.tags.replace(/^\[|\]$/g, "");
+                            // Split dan trim
+                            parsedTags = cleaned
                               .split(",")
-                              .map((tag) => tag.trim());
+                              .map((tag) => tag.trim().replace(/"/g, ""));
                           }
                         }
 
-                        // Pastikan parsedTags selalu array (jangan tampilkan kalau kosong)
+                        // Pastikan parsedTags adalah array
                         if (!Array.isArray(parsedTags)) parsedTags = [];
 
-                        // Hapus tanda kutip ganda kalau masih ada
                         return parsedTags.map((tag, i) => (
                           <span
                             key={i}
                             className="bg-gray-100 text-gray-500 px-3 py-1 rounded-full text-sm"
                           >
-                            {tag.replace(/"/g, "")}
+                            {tag}
                           </span>
                         ));
                       })()}
