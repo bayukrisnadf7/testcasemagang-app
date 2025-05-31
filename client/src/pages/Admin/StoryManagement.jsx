@@ -114,19 +114,22 @@ export default function StoryManagement() {
                           parsedTags = story.tags;
                         } else if (typeof story.tags === "string") {
                           try {
-                            // Kalau bisa parse JSON, langsung pakai array hasilnya
+                            // Pakai JSON.parse kalau stringnya array JSON
                             parsedTags = JSON.parse(story.tags);
+                            // Hapus tanda kutip ganda, kalau ada
+                            parsedTags = parsedTags.map((t) =>
+                              t.replace(/"/g, "")
+                            );
                           } catch {
-                            // Kalau gagal, hapus karakter "[" dan "]" dulu
-                            const cleaned = story.tags.replace(/^\[|\]$/g, "");
-                            // Split dan trim
+                            // Kalau gagal, hapus kurung [ ] dan spasi
+                            const cleaned = story.tags.replace(/[\[\]"]/g, "");
                             parsedTags = cleaned
                               .split(",")
-                              .map((tag) => tag.trim().replace(/"/g, ""));
+                              .map((tag) => tag.trim());
                           }
                         }
 
-                        // Pastikan parsedTags adalah array
+                        // Safety fallback
                         if (!Array.isArray(parsedTags)) parsedTags = [];
 
                         return parsedTags.map((tag, i) => (
