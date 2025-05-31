@@ -84,7 +84,7 @@ export default function DetailStory() {
               let parsedTags = [];
               try {
                 parsedTags = JSON.parse(story.tags); // parse JSON string ke array
-              } catch (error) {
+              } catch{
                 parsedTags = story.tags.split(","); // fallback kalau bukan JSON
               }
 

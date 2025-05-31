@@ -140,9 +140,7 @@ export default function EditStory() {
                 cleanTag = tag;
               }
               // Buang tanda kutip ("), kurung siku ([, ]) & whitespace berlebihan
-              cleanTag = cleanTag.replace(/[\[\]"]/g, "").trim();
-              
-
+              cleanTag = cleanTag.replace(/[[\]"]/g, "").trim();
               return (
                 <span
                   key={index}

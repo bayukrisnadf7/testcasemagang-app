@@ -91,8 +91,7 @@ export default function StoryManagement() {
                         let parsedTags = [];
                         try {
                           parsedTags = JSON.parse(story.tags); // parse JSON string ke array
-                        } catch (error) {
-                          console.error("Error parsing tags:", error);
+                        } catch {
                           parsedTags = story.tags.split(","); // fallback kalau bukan JSON
                         }
 
