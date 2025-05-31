@@ -110,39 +110,36 @@ export default function StoryManagement() {
                       {(() => {
                         let parsedTags = [];
 
-                        // Kalau sudah array
                         if (Array.isArray(story.tags)) {
                           parsedTags = story.tags;
-                        }
-                        // Kalau string JSON array
-                        else if (
-                          typeof story.tags === "string" &&
-                          story.tags.startsWith("[")
-                        ) {
+                        } else if (typeof story.tags === "string") {
                           try {
+                            // Jika string JSON (seperti: '["Best","Mental Illness"]')
                             parsedTags = JSON.parse(story.tags);
                           } catch {
-                            parsedTags = [];
+                            // Kalau bukan JSON, fallback split
+                            parsedTags = story.tags
+                              .split(",")
+                              .map((tag) => tag.trim());
                           }
                         }
-                        // Kalau string biasa
-                        else if (typeof story.tags === "string") {
-                          parsedTags = story.tags
-                            .split(",")
-                            .map((tag) => tag.trim());
-                        }
 
+                        // Pastikan parsedTags selalu array (jangan tampilkan kalau kosong)
+                        if (!Array.isArray(parsedTags)) parsedTags = [];
+
+                        // Hapus tanda kutip ganda kalau masih ada
                         return parsedTags.map((tag, i) => (
                           <span
                             key={i}
                             className="bg-gray-100 text-gray-500 px-3 py-1 rounded-full text-sm"
                           >
-                            {tag}
+                            {tag.replace(/"/g, "")}
                           </span>
                         ));
                       })()}
                     </div>
                   </td>
+
                   <td className="p-4">
                     {story.status === "Draft" ? (
                       <span className="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs">
