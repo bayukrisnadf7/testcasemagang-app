@@ -9,6 +9,9 @@ export default function StoryManagement() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 5;
+
   useEffect(() => {
     getStories()
       .then((res) => setStories(res.data))
@@ -29,6 +32,13 @@ export default function StoryManagement() {
 
     return matchesSearch && matchesCategory && matchesStatus;
   });
+
+  const startIndex = (currentPage - 1) * pageSize;
+  const paginatedStories = filteredStories.slice(
+    startIndex,
+    startIndex + pageSize
+  );
+  const totalPages = Math.ceil(filteredStories.length / pageSize);
 
   return (
     <div className="p-6">
@@ -79,9 +89,9 @@ export default function StoryManagement() {
           </thead>
           <tbody>
             {filteredStories.length > 0 ? (
-              filteredStories.map((story, index) => (
+              paginatedStories.map((story, index) => (
                 <tr key={story.id} className="border-b hover:bg-gray-50">
-                  <td className="p-4">{index + 1}</td>
+                  <td className="p-4">{startIndex + index + 1}</td>
                   <td className="p-4">{story.title}</td>
                   <td className="p-4">{story.writer}</td>
                   <td className="p-4">{story.category}</td>
@@ -180,12 +190,23 @@ export default function StoryManagement() {
       {/* Pagination */}
       <div className="flex items-center justify-between mt-4 text-sm text-gray-600">
         <p>
-          Menampilkan {filteredStories.length} dari {stories.length} data
+          Menampilkan {paginatedStories.length} dari {filteredStories.length}{" "}
+          data
         </p>
         <div className="flex items-center space-x-2">
-          <button className="px-3 py-1 rounded bg-orange-500 text-white">
-            1
-          </button>
+          {Array.from({ length: totalPages }, (_, idx) => (
+            <button
+              key={idx + 1}
+              className={`px-3 py-1 rounded ${
+                currentPage === idx + 1
+                  ? "bg-orange-500 text-white"
+                  : "bg-white border"
+              }`}
+              onClick={() => setCurrentPage(idx + 1)}
+            >
+              {idx + 1}
+            </button>
+          ))}
         </div>
       </div>
 
@@ -229,7 +250,7 @@ export default function StoryManagement() {
                   value={selectedStatus}
                   onChange={(e) => setSelectedStatus(e.target.value)}
                 >
-                  <option value="">Publish</option>
+                  <option value="">All</option>
                   <option>Draft</option>
                   <option>Publish</option>
                 </select>
