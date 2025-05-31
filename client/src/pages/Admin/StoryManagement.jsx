@@ -87,14 +87,24 @@ export default function StoryManagement() {
                   <td className="p-4">{story.category}</td>
                   <td className="p-4">
                     <div className="flex flex-wrap gap-2">
-                      {story.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="bg-gray-200 text-gray-600 px-2 py-1 rounded-full text-xs"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                      {(() => {
+                        let parsedTags = [];
+                        try {
+                          parsedTags = JSON.parse(story.tags); // parse JSON string ke array
+                        } catch (error) {
+                          console.error("Error parsing tags:", error);
+                          parsedTags = story.tags.split(","); // fallback kalau bukan JSON
+                        }
+
+                        return parsedTags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="bg-gray-100 text-gray-500 px-3 py-1 rounded-full text-sm"
+                          >
+                            {tag}
+                          </span>
+                        ));
+                      })()}
                     </div>
                   </td>
                   <td className="p-4">
@@ -183,43 +193,55 @@ export default function StoryManagement() {
       {/* Modal Filter */}
       {showFilter && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded p-6 w-full max-w-md">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-semibold">Filter</h2>
-              <button onClick={() => setShowFilter(false)}>&times;</button>
+          <div className="bg-white rounded-2xl p-6 w-full max-w-md">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-bold">Filter</h2>
+              <button
+                onClick={() => setShowFilter(false)}
+                className="text-xl font-bold text-gray-400 hover:text-black"
+              >
+                &times;
+              </button>
             </div>
-            <div className="space-y-4">
-              <div>
-                <label className="block mb-1 font-semibold">Category</label>
+
+            {/* Category */}
+            <div className="mb-4">
+              <label className="block mb-1 font-semibold">Category</label>
+              <div className="relative">
                 <select
-                  className="w-full border rounded p-2"
+                  className="w-full border rounded-lg p-3 bg-white focus:outline-none focus:ring-2 focus:ring-orange-400"
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
                 >
-                  <option value="">All</option>
+                  <option value="">Category</option>
                   <option>Financial</option>
                   <option>Technology</option>
                   <option>Health</option>
                 </select>
               </div>
-              <div>
-                <label className="block mb-1 font-semibold">Status</label>
+            </div>
+
+            {/* Status */}
+            <div className="mb-6">
+              <label className="block mb-1 font-semibold">Status</label>
+              <div className="relative">
                 <select
-                  className="w-full border rounded p-2"
+                  className="w-full border rounded-lg p-3 bg-white focus:outline-none focus:ring-2 focus:ring-orange-400"
                   value={selectedStatus}
                   onChange={(e) => setSelectedStatus(e.target.value)}
                 >
-                  <option value="">All</option>
+                  <option value="">Publish</option>
                   <option>Draft</option>
                   <option>Publish</option>
                 </select>
               </div>
             </div>
-            <div className="flex justify-end mt-4 space-x-2">
+
+            {/* Buttons */}
+            <div className="flex justify-between">
               <button
-                className="px-4 py-2 rounded border"
+                className="flex-1 px-4 py-2 border rounded-full text-black hover:bg-gray-100 mr-2"
                 onClick={() => {
-                  // Reset filter
                   setSelectedCategory("");
                   setSelectedStatus("");
                   setShowFilter(false);
@@ -228,10 +250,16 @@ export default function StoryManagement() {
                 Reset
               </button>
               <button
-                className="px-4 py-2 rounded bg-orange-500 text-white hover:bg-orange-600"
+                className="flex-1 px-4 py-2 border rounded-full text-black hover:bg-gray-100 mr-2"
                 onClick={() => setShowFilter(false)}
               >
-                Apply
+                Cancel
+              </button>
+              <button
+                className="flex-1 px-4 py-2 bg-orange-500 rounded-full text-white hover:bg-orange-600"
+                onClick={() => setShowFilter(false)}
+              >
+                Filter
               </button>
             </div>
           </div>

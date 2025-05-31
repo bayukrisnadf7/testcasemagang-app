@@ -52,29 +52,32 @@ router.post("/", upload.single("cover"), (req, res) => {
   res.status(201).json(newStory);
 });
 
-
 // PUT update story by id
-router.put("/:id", upload.single("coverImage"), (req, res) => {
+router.put("/:id", upload.single("cover"), (req, res) => {
   console.log("===== EDIT STORY CALLED =====");
   console.log("req.body:", req.body);
   console.log("req.file:", req.file);
 
   const id = parseInt(req.params.id);
   const index = stories.findIndex((s) => s.id === id);
-  if (index === -1) return res.status(404).json({ message: "Story not found" });
+  if (index === -1) {
+    return res.status(404).json({ message: "Story not found" });
+  }
 
-  const { title, writer, synopsis, category, status } = req.body;
-  const tags = req.body.tags
-    ? req.body.tags.split(",").map((t) => t.trim())
-    : stories[index].tags;
+  // Parse tags safely
+  let tags = stories[index].tags;
+  if (req.body.tags) {
+    tags = req.body.tags.split(",").map((t) => t.trim());
+  }
 
+  // Update fields
   stories[index] = {
     ...stories[index],
-    title: title || stories[index].title,
-    writer: writer || stories[index].writer,
-    synopsis: synopsis || stories[index].synopsis,
-    category: category || stories[index].category,
-    status: status || stories[index].status,
+    title: req.body.title || stories[index].title,
+    writer: req.body.writer || stories[index].writer,
+    synopsis: req.body.synopsis || stories[index].synopsis,
+    category: req.body.category || stories[index].category,
+    status: req.body.status || stories[index].status,
     tags,
     cover: req.file ? req.file.filename : stories[index].cover,
     lastUpdated: new Date().toISOString().split("T")[0],
@@ -83,12 +86,13 @@ router.put("/:id", upload.single("coverImage"), (req, res) => {
   res.json(stories[index]);
 });
 
-
 // DELETE story by id
 router.delete("/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const index = stories.findIndex((s) => s.id === id);
-  if (index === -1) return res.status(404).json({ message: "Story not found" });
+  if (index === -1) {
+    return res.status(404).json({ message: "Story not found" });
+  }
 
   stories.splice(index, 1);
   res.json({ message: "Story deleted" });

@@ -128,21 +128,37 @@ export default function EditStory() {
             Tags/Keywords Story
           </label>
           <div className="flex flex-wrap gap-2">
-            {story.tags.map((tag) => (
-              <span
-                key={tag}
-                className="bg-orange-500 text-white rounded-full px-2 py-1 flex items-center"
-              >
-                {tag}
-                <button
-                  type="button"
-                  onClick={() => handleRemoveTag(tag)}
-                  className="ml-1 text-xs"
+            {story.tags.map((tag, index) => {
+              // Parse JSON jika mungkin, lalu hilangkan semua tanda " di hasil akhirnya
+              let cleanTag = tag;
+              try {
+                const parsed = JSON.parse(tag);
+                if (Array.isArray(parsed)) {
+                  cleanTag = parsed[0];
+                }
+              } catch {
+                cleanTag = tag;
+              }
+              // Buang tanda kutip ("), kurung siku ([, ]) & whitespace berlebihan
+              cleanTag = cleanTag.replace(/[\[\]"]/g, "").trim();
+              
+
+              return (
+                <span
+                  key={index}
+                  className="bg-orange-500 text-white rounded-full px-2 py-1 flex items-center"
                 >
-                  x
-                </button>
-              </span>
-            ))}
+                  {cleanTag}
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveTag(tag)} // Tetap pakai tag mentah
+                    className="ml-1 text-xs"
+                  >
+                    x
+                  </button>
+                </span>
+              );
+            })}
           </div>
         </div>
         <div>

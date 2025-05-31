@@ -79,15 +79,24 @@ export default function DetailStory() {
         </div>
         <div>
           <label className="block mb-1 font-semibold">Tags/Keywords</label>
-          <div className="flex flex-wrap gap-2">
-            {story.tags.map((tag) => (
-              <span
-                key={tag}
-                className="bg-orange-500 text-white rounded-full px-2 py-1"
-              >
-                {tag}
-              </span>
-            ))}
+          <div className="flex flex-wrap items-center gap-2">
+            {(() => {
+              let parsedTags = [];
+              try {
+                parsedTags = JSON.parse(story.tags); // parse JSON string ke array
+              } catch (error) {
+                parsedTags = story.tags.split(","); // fallback kalau bukan JSON
+              }
+
+              return parsedTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm"
+                >
+                  {tag}
+                </span>
+              ));
+            })()}
           </div>
         </div>
       </div>
@@ -97,9 +106,11 @@ export default function DetailStory() {
           <label className="block mb-1 font-semibold">Cover Image</label>
           {story.cover ? (
             <img
-              src={`http://localhost:5000/img/${story.cover}`}
+              src={`https://testcasemagang-app-production.up.railway.app/img/${story.cover}`}
               alt="cover"
-              className="border w-full rounded"
+              className="border rounded"
+              width={150}
+              height={150}
             />
           ) : (
             <p className="text-gray-500 italic">Tidak ada gambar cover</p>
