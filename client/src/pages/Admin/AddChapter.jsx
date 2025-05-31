@@ -88,13 +88,13 @@ export default function AddChapter() {
 
       <div className="flex justify-end mt-6">
         <button
-          className="border rounded px-4 py-2 mr-2"
+          className="border rounded-3xl px-4 py-2 mr-2"
           onClick={() => window.history.back()}
         >
           Cancel
         </button>
         <button
-          className="bg-orange-500 text-white rounded px-4 py-2"
+          className="bg-orange-500 text-white rounded-3xl px-4 py-2"
           onClick={handleSave}
         >
           Save

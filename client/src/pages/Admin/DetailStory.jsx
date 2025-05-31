@@ -79,34 +79,29 @@ export default function DetailStory() {
         </div>
         <div>
           <label className="block mb-1 font-semibold">Tags/Keywords</label>
-          <div className="flex flex-wrap items-center gap-2">
-            {(() => {
-              let parsedTags = [];
-
-              if (Array.isArray(story.tags)) {
-                // Sudah array → langsung
-                parsedTags = story.tags;
-              } else if (typeof story.tags === "string") {
-                try {
-                  parsedTags = JSON.parse(story.tags);
-                  if (!Array.isArray(parsedTags)) {
-                    // Kalau hasil parse bukan array, fallback split
-                    parsedTags = story.tags.split(",");
-                  }
-                } catch {
-                  parsedTags = story.tags.split(",");
+          <div className="flex flex-wrap gap-2">
+            {story.tags.map((tag, index) => {
+              // Parse JSON jika mungkin, lalu hilangkan semua tanda " di hasil akhirnya
+              let cleanTag = tag;
+              try {
+                const parsed = JSON.parse(tag);
+                if (Array.isArray(parsed)) {
+                  cleanTag = parsed[0];
                 }
+              } catch {
+                cleanTag = tag;
               }
-
-              return parsedTags.map((tag) => (
+              // Buang tanda kutip ("), kurung siku ([, ]) & whitespace berlebihan
+              cleanTag = cleanTag.replace(/[[\]"]/g, "").trim();
+              return (
                 <span
-                  key={tag}
-                  className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm"
+                  key={index}
+                  className="bg-orange-500 text-white rounded-full px-2 py-1 flex items-center"
                 >
-                  {tag}
+                  {cleanTag}
                 </span>
-              ));
-            })()}
+              );
+            })}
           </div>
         </div>
       </div>
