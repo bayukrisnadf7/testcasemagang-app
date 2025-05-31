@@ -1,3 +1,4 @@
+import React from "react";
 import { FiSearch, FiFilter, FiEdit, FiTrash, FiEye } from "react-icons/fi";
 import { useEffect, useState } from "react";
 import { getStories, deleteStory } from "../../services/storyService";
@@ -150,6 +151,7 @@ export default function StoryManagement() {
 
                     {/* Delete button */}
                     <button
+                      data-testid={`delete-button-${story.id}`}
                       onClick={() => {
                         if (
                           window.confirm(
