@@ -16,7 +16,7 @@ export default function StoryManagement() {
   }, []);
 
   // Filtered stories
-  const filteredStories = stories.filter((story) => {
+  const filteredStories = [...stories].reverse().filter((story) => {
     const matchesSearch =
       story.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       story.writer.toLowerCase().includes(searchTerm.toLowerCase());

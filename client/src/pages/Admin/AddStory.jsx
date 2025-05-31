@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { createStory } from "../../services/storyService";
 import { getChapters, deleteChapter } from "../../services/chapterService";
 import { FiEdit, FiTrash } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 export default function AddStory() {
   const [title, setTitle] = useState("");
@@ -14,7 +15,9 @@ export default function AddStory() {
   const [cover, setCover] = useState(null);
 
   const [chapters, setChapters] = useState([]);
+  const [showCancelModal, setShowCancelModal] = useState(false);
 
+  const navigate = useNavigate();
   // Fetch chapters
   const fetchChapters = () => {
     getChapters()
@@ -217,7 +220,8 @@ export default function AddStory() {
       {/* Tombol Save / Cancel */}
       <div className="flex justify-end mt-4">
         <button
-          onClick={() => (window.location.href = "/story")}
+          type="button"
+          onClick={() => setShowCancelModal(true)}
           className="border rounded-3xl px-8 py-2 mr-2"
         >
           Cancel
@@ -229,6 +233,34 @@ export default function AddStory() {
           Save
         </button>
       </div>
+
+      {showCancelModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-md max-w-md w-full">
+            <h2 className="text-lg font-semibold mb-4">
+              Are you sure you want to cancel adding the story without saving
+              the data?
+            </h2>
+            <div className="flex justify-end gap-2">
+              <button
+                className="px-4 py-2 border rounded hover:bg-gray-100"
+                onClick={() => setShowCancelModal(false)}
+              >
+                No
+              </button>
+              <button
+                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                onClick={() => {
+                  setShowCancelModal(false);
+                  navigate("/story");
+                }}
+              >
+                Yes
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
