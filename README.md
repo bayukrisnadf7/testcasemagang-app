@@ -106,3 +106,4 @@ This project is a **Story Management System** built with **ReactJS** for the fro
     └── package-lock.json
 
 ## <a name="#website-url"></a> Website URL
+Deployed Link : https://testcasemagang-app.vercel.app/ 
