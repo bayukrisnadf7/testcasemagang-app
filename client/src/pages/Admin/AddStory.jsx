@@ -188,7 +188,7 @@ export default function AddStory() {
           </tr>
         </thead>
         <tbody>
-          {chapters.map((chapter) => (
+          {[...chapters].reverse().map((chapter) => (
             <tr key={chapter.id}>
               <td className="border-t px-4 py-2">{chapter.title}</td>
               <td className="border-t px-4 py-2">
